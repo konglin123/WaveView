@@ -88,7 +88,11 @@ public class WaveView extends View {
         super.onDraw(canvas);
         /** 清除上次画的路径 */
         mPath.reset();
-
+        /** 让波浪升高 */
+        mCenterY-=1;
+        if(mCenterY<0){
+            mCenterY=mScreenHeight/2;
+        }
         mPath.moveTo(-mWL + offset, mCenterY);
         //100就是波浪高度
         for (int i = 0; i < mWaveCount; i++) {
